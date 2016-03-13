@@ -29,4 +29,8 @@ describe TipCalculator do
   it "round up the tip amount for fractions" do
     expect(described_class.new("11.25").tip).to eql("1.69")
   end
+
+  it "doesn't accept a negative bill amount" do
+    expect{described_class.new("-10.00")}.to raise_exception("Please add a non-negative amount")
+  end
 end
